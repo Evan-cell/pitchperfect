@@ -14,7 +14,9 @@ class Config:
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = "postgres://draofkltplxorw:da3194c3eca4ba97b045cfaf76204a213ea48089ad5a40c0e763162cd0c58b2f@ec2-107-20-127-127.compute-1.amazonaws.com:5432/d4tf780cr625od"
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    if SQLALCHEMY_DATABASE_URI and SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+        SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
     
 
 
