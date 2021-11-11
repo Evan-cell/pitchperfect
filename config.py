@@ -3,7 +3,7 @@ import os
 class Config:
 
     
-    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SECRET_KEY = os.environ.get('something only you know')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:malcomiz0582@localhost/sql'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 #  email configurations
